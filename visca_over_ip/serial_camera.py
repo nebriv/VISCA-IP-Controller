@@ -92,7 +92,7 @@ class SerialCamera:
 
     def reset_sequence_number(self):
         message = bytearray.fromhex('02 00 00 01 00 00 00 01 01')
-        self._sock.sendto(message, self._location)
+        self._sock.write(message)
         self._receive_response()
         self.sequence_number = 1
 
