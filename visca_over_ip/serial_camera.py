@@ -72,7 +72,7 @@ class SerialCamera:
         """
         while True:
             try:
-                response = self._sock.recv(32)
+                response = self._sock.read(32)
                 response_sequence_number = int.from_bytes(response[4:8], 'big')
 
                 if response_sequence_number < self.sequence_number:
